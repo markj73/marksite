@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome to your todo -list</h1>
+
+<table>
+{% for item in todolist %}
+<tr>
+  <td><a href="/todo/{{item.id}}">{{item.subject}}</a></td>
+  <td>{{item.deadline}}</td>
+</tr>
+{% endfor %}
+</table>
+<br/>
+<a href="/todo/new/">Create new todo item</a>
+
+{% endblock %}
