@@ -14,8 +14,13 @@ class IndexView(LoginHybridListView):
         Get the list of items for this view.
         """
         items = self.model._default_manager.filter(user=self.request.user, finished=False)
+
+        def getScore( anObject ):
+            return anObject.score()
+        objects= list(items)
+        objects.sort( key=getScore, reverse=True )
         #items = queryset.filter(user=self.request.user)
-        return items
+        return objects
 
 class TodoItemUpdateView(LoginHybridUpdateView):    
     model = TodoItem

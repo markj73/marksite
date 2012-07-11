@@ -8,7 +8,7 @@
 {% for item in todolist %}
 <tr>
   <td><a href="/todo/{{item.id}}">{{item.subject}}</a></td>
-  <td>{{item.deadline}}</td>
+  <td>{{ item.score }}</td>
 </tr>
 {% endfor %}
 </table>
